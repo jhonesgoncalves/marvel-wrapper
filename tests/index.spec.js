@@ -64,7 +64,7 @@ describe('MarvelWrapper Library', () => {
       expect(stubedFetch).to.have.been.calledOnce;
     });
 
-    it('should call fetch with url passed and (ts, publickey, hash)', () => {
+    it('should call fetch with url passed and (publickey)', () => {
       let marvel = new MarvelWrapper({
         privateKey: 'foo',
         publicKey: 'pool'
@@ -74,5 +74,18 @@ describe('MarvelWrapper Library', () => {
       let url = `url?ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
       expect(stubedFetch).to.have.been.calledWith(url);
     });
+
+     it('should call fetch with url passed and (limit, publickey)', () => {
+      let marvel = new MarvelWrapper({
+        privateKey: 'foo',
+        publicKey: 'pool',
+        limit: 100
+      });
+
+      marvel.request('url');
+      let url = `url?limit=100&ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+      expect(stubedFetch).to.have.been.calledWith(url);
+    });
+
   });
 });

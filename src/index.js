@@ -16,8 +16,9 @@ export default class MarvelWrapper {
   }
 
   request(url) {
-    if(this.limit)
+    if (this.limit) {
       return fetch(`${url}?limit=${this.limit}&ts=${this.ts}&apikey=${this.publicKey}&hash=${this.hash}`).then(toJSON);
+    }
 
     return fetch(`${url}?ts=${this.ts}&apikey=${this.publicKey}&hash=${this.hash}`).then(toJSON);
   }
