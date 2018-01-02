@@ -204,7 +204,6 @@ marvel.comic.getStories('37504')
 ```
 
 
-<<<<<<< HEAD
 > ## CHARACTER
 
 ### character.getCharacters()
@@ -328,8 +327,6 @@ marvel.character.getStories('37504')
     response => response.data.results.map(item => console.log(item.name))
   })
 ```
-=======
->>>>>>> 874e0ad8b8a1ca0c79eb4f22279e3b04a606d58e
 
 ## Contributing
 
