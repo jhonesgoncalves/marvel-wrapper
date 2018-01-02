@@ -23,7 +23,7 @@
      .then(response => {
        markup = response.data.results.map(item =>
          `<img src='${item.thumbnail.path}.${item.thumbnail.extension}' alt='${item.name}' />`).join('');
-
+       console.log(response);
        comicsEl.innerHTML = markup;
      });
 

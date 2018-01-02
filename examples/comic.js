@@ -8,6 +8,6 @@ let marvel = new MarvelWrapper({
   limit: 100
 });
 
-const comics = marvel.comic.getComic('37504');
+const comics = marvel.comic.getCharacters('16233');
 
-comics.then(response => response.data.results.map(item => console.log(item)));
+comics.then(response => response.data.results.map(item => console.log(item.name)));
