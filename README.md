@@ -1,5 +1,7 @@
 # Marvel Wrapper
 
+[![Build Status](https://travis-ci.org/jhonesgoncal/marvel-wrapper.svg?branch=master)](https://travis-ci.org/jhonesgoncal/marvel-wrapper)[![Coverage Status](https://coveralls.io/repos/github/jhonesgoncal/marvel-wrapper/badge.svg?branch=master)](https://coveralls.io/github/jhonesgoncal/marvel-wrapper?branch=master)
+
 A wrapper to work with the [Marvel Web API](https://developer.marvel.com).
 
 ## Browser Support
