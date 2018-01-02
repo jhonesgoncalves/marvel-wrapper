@@ -84,7 +84,7 @@ const comics = marvel.comic.getComics();
 > Fetches lists of comics. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
 
 **No Arguments**
-
+--
 
 **Example**
 
