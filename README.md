@@ -196,6 +196,27 @@ marvel.comic.getCreators('37504')
 **Example**
 
 ```js
+marvel.comic.search('spider')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
+### comic.getStories(id)
+
+> Fetched list stories by id references comic. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
 marvel.comic.getStories('37504')
   .then(response => {
     // do what you want with the response
@@ -203,6 +224,26 @@ marvel.comic.getStories('37504')
   })
 ```
 
+### comic.search(startname)
+
+> Fetched list comics by start name of search. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument  | Type    | Options            |
+|-----------|---------|--------------------|
+|`startname`|*string* |'Any search letter' |
+
+
+**Example**
+
+```js
+marvel.comic.search('spider')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
 
 > ## CHARACTER
 
@@ -325,6 +366,27 @@ marvel.character.getStories('37504')
   .then(response => {
     // do what you want with the response
     response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### character.search(startname)
+
+> Fetched list characters by start name of search. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument  | Type    | Options            |
+|-----------|---------|--------------------|
+|`startname`|*string* |'Any search letter' |
+
+
+**Example**
+
+```js
+marvel.character.search('spider')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
   })
 ```
 
