@@ -189,4 +189,29 @@ describe('Comic', () => {
 
   });
 
+   describe('search', () => {
+
+      it('should call fetch method', ()=> {
+        const comics = marvel.comic.search();
+        expect(stubedFetch).to.have.been.calledOnce;
+      });
+
+      it('should call fetch correct URL', () => {
+        let comics = marvel.comic.search('spider');
+        let url = `http://gateway.marvel.com/v1/public/comics?titleStartsWith=spider&ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+        expect(stubedFetch).to.have.been.calledWith(url);
+
+        comics = marvel.comic.search('man');
+        url = `http://gateway.marvel.com/v1/public/comics?titleStartsWith=man&ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+        expect(stubedFetch).to.have.been.calledWith(url);
+      });
+
+      it('should return correct data from Promise', () => {
+        promise.resolves({comics: 'name'});
+        const comics = marvel.comic.search('man');
+        expect(comics.resolveValue).to.be.eql({comics: 'name'});
+      });
+
+  });
+
 });

@@ -6,5 +6,6 @@ export default function comic() {
     getEvents: id => this.request(`${this.apiURL}/comics/${id}/events`),
     getCreators: id => this.request(`${this.apiURL}/comics/${id}/creators`),
     getStories: id => this.request(`${this.apiURL}/comics/${id}/stories`),
+    search: search => this.requestSearch(`${this.apiURL}/comics?titleStartsWith=${search}&`),
   };
 }

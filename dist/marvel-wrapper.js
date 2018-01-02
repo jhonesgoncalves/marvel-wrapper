@@ -176,6 +176,11 @@ var MarvelWrapper = function () {
 
       return fetch(url + '?ts=' + this.ts + '&apikey=' + this.publicKey + '&hash=' + this.hash).then(_utils2.default);
     }
+  }, {
+    key: 'requestSearch',
+    value: function requestSearch(url) {
+      return fetch(url + 'ts=' + this.ts + '&apikey=' + this.publicKey + '&hash=' + this.hash).then(_utils2.default);
+    }
   }]);
 
   return MarvelWrapper;
@@ -200,9 +205,9 @@ module.exports = __webpack_require__(1).default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = character;
 function character() {
-  var _this = this;
+  var _this = this,
+      _this2 = this;
 
   return {
     getCharacter: function getCharacter(id) {
@@ -222,9 +227,13 @@ function character() {
     },
     getStories: function getStories(id) {
       return _this.request(_this.apiURL + "/characters/" + id + "/stories");
+    },
+    search: function search(_search) {
+      return _this2.requestSearch(_this2.apiURL + "/characters?nameStartsWith=" + _search + "&");
     }
   };
 }
+exports.default = character;
 
 /***/ }),
 /* 4 */
@@ -236,9 +245,9 @@ function character() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = comic;
 function comic() {
-  var _this = this;
+  var _this = this,
+      _this2 = this;
 
   return {
     getComic: function getComic(id) {
@@ -258,9 +267,13 @@ function comic() {
     },
     getStories: function getStories(id) {
       return _this.request(_this.apiURL + "/comics/" + id + "/stories");
+    },
+    search: function search(_search) {
+      return _this2.requestSearch(_this2.apiURL + "/comics?titleStartsWith=" + _search + "&");
     }
   };
 }
+exports.default = comic;
 
 /***/ }),
 /* 5 */

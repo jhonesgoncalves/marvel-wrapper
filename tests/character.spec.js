@@ -184,4 +184,27 @@ describe('Character', () => {
     });
   });
 
+  describe('search', () => {
+    it('should call fetch method', () => {
+      const characters = marvel.character.search();
+      expect(stubedFetch).to.have.been.calledOnce;
+    });
+
+    it('should call fetch with correct URL', () => {
+      let characters = marvel.character.search('man');
+      let url = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=man&ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+      expect(stubedFetch).to.have.been.calledWith(url);
+
+      characters = marvel.character.search('spider');
+      url = `http://gateway.marvel.com/v1/public/characters?nameStartsWith=spider&ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+      expect(stubedFetch).to.have.been.calledWith(url);
+    });
+
+    it('should return correct data from Promise', () => {
+      promise.resolves({characters: 'name'});
+      const characters = marvel.character.search('spider');
+      expect(characters.resolveValue).to.be.eql({characters: 'name'});
+
+    });
+  });
 });

@@ -25,5 +25,9 @@ export default class MarvelWrapper {
 
     return fetch(`${url}?ts=${this.ts}&apikey=${this.publicKey}&hash=${this.hash}`).then(toJSON);
   }
+
+  requestSearch(url) {
+    return fetch(`${url}ts=${this.ts}&apikey=${this.publicKey}&hash=${this.hash}`).then(toJSON);
+  }
 }
 
