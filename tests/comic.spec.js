@@ -89,4 +89,104 @@ describe('Comic', () => {
 
   });
 
+  describe('getCharacters', () => {
+
+      it('should call fetch method', ()=> {
+        const characters = marvel.comic.getCharacters();
+        expect(stubedFetch).to.have.been.calledOnce;
+      });
+
+      it('should call fetch correct URL', () => {
+        let characters = marvel.comic.getCharacters('4aawyAB9vmq3uQ7FjRGTy');
+        let url = `http://gateway.marvel.com/v1/public/comics/4aawyAB9vmq3uQ7FjRGTy/characters?ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+        expect(stubedFetch).to.have.been.calledWith(url);
+
+        characters = marvel.comic.getCharacters('4aawyAB9vmq3uQ7FjRGTk');
+        url = `http://gateway.marvel.com/v1/public/comics/4aawyAB9vmq3uQ7FjRGTk/characters?ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+        expect(stubedFetch).to.have.been.calledWith(url);
+      });
+
+      it('should return correct data from Promise', () => {
+        promise.resolves({characters: 'name'});
+        const characters = marvel.comic.getCharacters('4aawyAB9vmq3uQ7FjRGTy');
+        expect(characters.resolveValue).to.be.eql({characters: 'name'});
+      });
+
+  });
+
+  describe('getEvents', () => {
+
+      it('should call fetch method', ()=> {
+        const events = marvel.comic.getEvents();
+        expect(stubedFetch).to.have.been.calledOnce;
+      });
+
+      it('should call fetch correct URL', () => {
+        let events = marvel.comic.getEvents('4aawyAB9vmq3uQ7FjRGTy');
+        let url = `http://gateway.marvel.com/v1/public/comics/4aawyAB9vmq3uQ7FjRGTy/events?ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+        expect(stubedFetch).to.have.been.calledWith(url);
+
+        events = marvel.comic.getEvents('4aawyAB9vmq3uQ7FjRGTk');
+        url = `http://gateway.marvel.com/v1/public/comics/4aawyAB9vmq3uQ7FjRGTk/events?ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+        expect(stubedFetch).to.have.been.calledWith(url);
+      });
+
+      it('should return correct data from Promise', () => {
+        promise.resolves({events: 'name'});
+        const events = marvel.comic.getEvents('4aawyAB9vmq3uQ7FjRGTy');
+        expect(events.resolveValue).to.be.eql({events: 'name'});
+      });
+
+  });
+
+  describe('getCreators', () => {
+
+      it('should call fetch method', ()=> {
+        const creators = marvel.comic.getCreators();
+        expect(stubedFetch).to.have.been.calledOnce;
+      });
+
+      it('should call fetch correct URL', () => {
+        let creators = marvel.comic.getCreators('4aawyAB9vmq3uQ7FjRGTy');
+        let url = `http://gateway.marvel.com/v1/public/comics/4aawyAB9vmq3uQ7FjRGTy/creators?ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+        expect(stubedFetch).to.have.been.calledWith(url);
+
+        creators = marvel.comic.getCreators('4aawyAB9vmq3uQ7FjRGTk');
+        url = `http://gateway.marvel.com/v1/public/comics/4aawyAB9vmq3uQ7FjRGTk/creators?ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+        expect(stubedFetch).to.have.been.calledWith(url);
+      });
+
+      it('should return correct data from Promise', () => {
+        promise.resolves({creators: 'name'});
+        const creators = marvel.comic.getCreators('4aawyAB9vmq3uQ7FjRGTy');
+        expect(creators.resolveValue).to.be.eql({creators: 'name'});
+      });
+
+  });
+
+  describe('getStories', () => {
+
+      it('should call fetch method', ()=> {
+        const stories = marvel.comic.getStories();
+        expect(stubedFetch).to.have.been.calledOnce;
+      });
+
+      it('should call fetch correct URL', () => {
+        let stories = marvel.comic.getStories('4aawyAB9vmq3uQ7FjRGTy');
+        let url = `http://gateway.marvel.com/v1/public/comics/4aawyAB9vmq3uQ7FjRGTy/stories?ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+        expect(stubedFetch).to.have.been.calledWith(url);
+
+        stories = marvel.comic.getStories('4aawyAB9vmq3uQ7FjRGTk');
+        url = `http://gateway.marvel.com/v1/public/comics/4aawyAB9vmq3uQ7FjRGTk/stories?ts=${marvel.ts}&apikey=${marvel.publicKey}&hash=${marvel.hash}`;
+        expect(stubedFetch).to.have.been.calledWith(url);
+      });
+
+      it('should return correct data from Promise', () => {
+        promise.resolves({stories: 'name'});
+        const stories = marvel.comic.getStories('4aawyAB9vmq3uQ7FjRGTy');
+        expect(stories.resolveValue).to.be.eql({stories: 'name'});
+      });
+
+  });
+
 });

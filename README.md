@@ -79,6 +79,8 @@ const comics = marvel.comic.getComics();
 
 > Follow the methods that the library provides.
 
+> ## COMIC
+
 ### comic.getComics()
 
 > Fetches lists of comics. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
@@ -116,6 +118,91 @@ marvel.comic.getComic('37504')
     response => response.data.results.map(item => console.log(item))
   })
 ```
+
+### comic.getCharacters(id)
+
+> Fetched list characters by id references comic. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.comic.getCharacters('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### comic.getEvents(id)
+
+> Fetched list events by id references comic. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.comic.getEvents('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### comic.getCreators(id)
+
+> Fetched list creators by id references comic. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.comic.getCreators('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### comic.getStories(id)
+
+> Fetched list stories by id references comic. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.comic.getStories('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
 
 
 ## Contributing
