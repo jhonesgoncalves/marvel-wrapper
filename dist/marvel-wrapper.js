@@ -128,19 +128,23 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _md = __webpack_require__(8);
+var _md = __webpack_require__(9);
 
 var _md2 = _interopRequireDefault(_md);
 
-var _comic = __webpack_require__(3);
+var _comic = __webpack_require__(4);
 
 var _comic2 = _interopRequireDefault(_comic);
 
-var _config = __webpack_require__(4);
+var _character = __webpack_require__(3);
+
+var _character2 = _interopRequireDefault(_character);
+
+var _config = __webpack_require__(5);
 
 var _config2 = _interopRequireDefault(_config);
 
-var _utils = __webpack_require__(5);
+var _utils = __webpack_require__(6);
 
 var _utils2 = _interopRequireDefault(_utils);
 
@@ -158,13 +162,17 @@ var MarvelWrapper = function () {
     this.limit = options.limit;
     this.ts = new Date().getTime();
     this.hash = (0, _md2.default)('' + this.ts + this.privateKey + this.publicKey);
+
     this.comic = _comic2.default.bind(this)();
+    this.character = _character2.default.bind(this)();
   }
 
   _createClass(MarvelWrapper, [{
     key: 'request',
     value: function request(url) {
-      if (this.limit) return fetch(url + '?limit=' + this.limit + '&ts=' + this.ts + '&apikey=' + this.publicKey + '&hash=' + this.hash).then(_utils2.default);
+      if (this.limit) {
+        return fetch(url + '?limit=' + this.limit + '&ts=' + this.ts + '&apikey=' + this.publicKey + '&hash=' + this.hash).then(_utils2.default);
+      }
 
       return fetch(url + '?ts=' + this.ts + '&apikey=' + this.publicKey + '&hash=' + this.hash).then(_utils2.default);
     }
@@ -192,16 +200,28 @@ module.exports = __webpack_require__(1).default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = comic;
-function comic() {
+exports.default = character;
+function character() {
   var _this = this;
 
   return {
-    getComic: function getComic(id) {
-      return _this.request(_this.apiURL + "/comics/" + id);
+    getCharacter: function getCharacter(id) {
+      return _this.request(_this.apiURL + "/characters/" + id);
     },
-    getComics: function getComics() {
-      return _this.request(_this.apiURL + "/comics");
+    getCharacters: function getCharacters() {
+      return _this.request(_this.apiURL + "/characters");
+    },
+    getComics: function getComics(id) {
+      return _this.request(_this.apiURL + "/characters/" + id + "/comics");
+    },
+    getEvents: function getEvents(id) {
+      return _this.request(_this.apiURL + "/characters/" + id + "/events");
+    },
+    getSeries: function getSeries(id) {
+      return _this.request(_this.apiURL + "/characters/" + id + "/series");
+    },
+    getStories: function getStories(id) {
+      return _this.request(_this.apiURL + "/characters/" + id + "/stories");
     }
   };
 }
@@ -216,11 +236,47 @@ function comic() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.default = comic;
+function comic() {
+  var _this = this;
+
+  return {
+    getComic: function getComic(id) {
+      return _this.request(_this.apiURL + "/comics/" + id);
+    },
+    getComics: function getComics() {
+      return _this.request(_this.apiURL + "/comics");
+    },
+    getCharacters: function getCharacters(id) {
+      return _this.request(_this.apiURL + "/comics/" + id + "/characters");
+    },
+    getEvents: function getEvents(id) {
+      return _this.request(_this.apiURL + "/comics/" + id + "/events");
+    },
+    getCreators: function getCreators(id) {
+      return _this.request(_this.apiURL + "/comics/" + id + "/creators");
+    },
+    getStories: function getStories(id) {
+      return _this.request(_this.apiURL + "/comics/" + id + "/stories");
+    }
+  };
+}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var API_URL = 'http://gateway.marvel.com/v1/public';
 exports.default = API_URL;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -235,7 +291,7 @@ var toJSON = function toJSON(data) {
 exports.default = toJSON;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 (function() {
@@ -337,7 +393,7 @@ exports.default = toJSON;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 /*!
@@ -364,13 +420,13 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function(){
-  var crypt = __webpack_require__(6),
+  var crypt = __webpack_require__(7),
       utf8 = __webpack_require__(0).utf8,
-      isBuffer = __webpack_require__(7),
+      isBuffer = __webpack_require__(8),
       bin = __webpack_require__(0).bin,
 
   // The core

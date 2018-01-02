@@ -1,5 +1,6 @@
 import md5 from 'md5';
 import comic from './comic';
+import character from './character';
 
 import API_URL from './config';
 import toJSON from './utils';
@@ -12,7 +13,9 @@ export default class MarvelWrapper {
     this.limit = options.limit;
     this.ts = new Date().getTime();
     this.hash = md5(`${this.ts}${this.privateKey}${this.publicKey}`);
+
     this.comic = comic.bind(this)();
+    this.character = character.bind(this)();
   }
 
   request(url) {
