@@ -1,6 +1,6 @@
 # Marvel Wrapper
 
-[![Build Status](https://travis-ci.org/jhonesgoncal/marvel-wrapper.svg?branch=master)](https://travis-ci.org/jhonesgoncal/marvel-wrapper)[![Coverage Status](https://coveralls.io/repos/github/jhonesgoncal/marvel-wrapper/badge.svg?branch=master)](https://coveralls.io/github/jhonesgoncal/marvel-wrapper?branch=master)
+[![Build Status](https://travis-ci.org/jhonesgoncal/marvel-wrapper.svg?branch=master)](https://travis-ci.org/jhonesgoncal/marvel-wrapper)[![Coverage Status](https://coveralls.io/repos/github/jhonesgoncal/marvel-wrapper/badge.svg?branch=master)](https://coveralls.io/github/jhonesgoncal/marvel-wrapper?branch=master)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A wrapper to work with the [Marvel Web API](https://developer.marvel.com).
 
@@ -79,7 +79,7 @@ const comics = marvel.comic.getComics();
 
 > Follow the methods that the library provides.
 
-> ## COMIC
+> ## COMICS
 
 ### comic.getComics()
 
@@ -245,7 +245,7 @@ marvel.comic.search('spider')
   })
 ```
 
-> ## CHARACTER
+> ## CHARACTERS
 
 ### character.getCharacters()
 
@@ -266,7 +266,7 @@ marvel.character.getCharacters()
 
 ### character.getCharacter(id)
 
-> Fetch one comic by id. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+> Fetch one character by id. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
 
 **Arguments**
 
@@ -389,6 +389,322 @@ marvel.character.search('spider')
     response => response.data.results.map(item => console.log(item))
   })
 ```
+
+
+> ## CREATORS
+
+### creator.getCreators()
+
+> Fetches lists of creators. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**No Arguments**
+--
+
+**Example**
+
+```js
+marvel.creator.getCreators()
+  .then(reponse => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
+### creator.getCreator(id)
+
+> Fetch one creator by id. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.creator.getCreator('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
+### creator.getComics(id)
+
+> Fetched list comics by id references creator. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.creator.getComics('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### creator.getEvents(id)
+
+> Fetched list events by id references creator. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.creator.getEvents('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### creator.getSeries(id)
+
+> Fetched list creators by id references creator. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.creator.getSeries('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### creator.getStories(id)
+
+> Fetched list stories by id references creator. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.creator.getStories('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### creator.search(startname)
+
+> Fetched list creators by start name of search. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument  | Type    | Options            |
+|-----------|---------|--------------------|
+|`startname`|*string* |'Any search letter' |
+
+
+**Example**
+
+```js
+marvel.creator.search('spider')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
+
+
+> ## EVENTS
+
+### event.getEvents()
+
+> Fetches lists of Events. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**No Arguments**
+--
+
+**Example**
+
+```js
+marvel.event.getEvents()
+  .then(reponse => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
+### event.getEvent(id)
+
+> Fetch one event by id. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.event.getEvent('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
+
+### event.getCharacters(id)
+
+> Fetched list characters by id references event. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.event.getCharacters('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### event.getComics(id)
+
+> Fetched list comics by id references event. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.event.getComics('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### event.getCreators(id)
+
+> Fetched list creators by id references event. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.event.getCreators('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### event.getSeries(id)
+
+> Fetched list events by id references event. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.event.getSeries('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### event.getStories(id)
+
+> Fetched list stories by id references event. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.event.getStories('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### event.search(startname)
+
+> Fetched list events by start name of search. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument  | Type    | Options            |
+|-----------|---------|--------------------|
+|`startname`|*string* |'Any search letter' |
+
+
+**Example**
+
+```js
+marvel.event.search('spider')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
 
 ## Contributing
 
