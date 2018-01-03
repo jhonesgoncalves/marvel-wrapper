@@ -1,6 +1,7 @@
 import md5 from 'md5';
 import comic from './comic';
 import character from './character';
+import creator from './creator';
 
 import API_URL from './config';
 import toJSON from './utils';
@@ -16,6 +17,7 @@ export default class MarvelWrapper {
 
     this.comic = comic.bind(this)();
     this.character = character.bind(this)();
+    this.creator = creator.bind(this)();
   }
 
   request(url) {

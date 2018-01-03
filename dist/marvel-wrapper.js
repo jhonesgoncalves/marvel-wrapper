@@ -128,7 +128,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _md = __webpack_require__(9);
+var _md = __webpack_require__(10);
 
 var _md2 = _interopRequireDefault(_md);
 
@@ -140,11 +140,15 @@ var _character = __webpack_require__(3);
 
 var _character2 = _interopRequireDefault(_character);
 
+var _creator = __webpack_require__(6);
+
+var _creator2 = _interopRequireDefault(_creator);
+
 var _config = __webpack_require__(5);
 
 var _config2 = _interopRequireDefault(_config);
 
-var _utils = __webpack_require__(6);
+var _utils = __webpack_require__(7);
 
 var _utils2 = _interopRequireDefault(_utils);
 
@@ -165,6 +169,7 @@ var MarvelWrapper = function () {
 
     this.comic = _comic2.default.bind(this)();
     this.character = _character2.default.bind(this)();
+    this.creator = _creator2.default.bind(this)();
   }
 
   _createClass(MarvelWrapper, [{
@@ -298,13 +303,53 @@ exports.default = API_URL;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+function creator() {
+  var _this = this,
+      _this2 = this;
+
+  return {
+    getCreator: function getCreator(id) {
+      return _this.request(_this.apiURL + "/creators/" + id);
+    },
+    getCreators: function getCreators() {
+      return _this.request(_this.apiURL + "/creators");
+    },
+    getComics: function getComics(id) {
+      return _this.request(_this.apiURL + "/creators/" + id + "/comics");
+    },
+    getEvents: function getEvents(id) {
+      return _this.request(_this.apiURL + "/creators/" + id + "/events");
+    },
+    getSeries: function getSeries(id) {
+      return _this.request(_this.apiURL + "/creators/" + id + "/series");
+    },
+    getStories: function getStories(id) {
+      return _this.request(_this.apiURL + "/creators/" + id + "/stories");
+    },
+    search: function search(_search) {
+      return _this2.requestSearch(_this2.apiURL + "/creators?nameStartsWith=" + _search + "&");
+    }
+  };
+}
+exports.default = creator;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var toJSON = function toJSON(data) {
   return data.json();
 };
 exports.default = toJSON;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports) {
 
 (function() {
@@ -406,7 +451,7 @@ exports.default = toJSON;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 /*!
@@ -433,13 +478,13 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function(){
-  var crypt = __webpack_require__(7),
+  var crypt = __webpack_require__(8),
       utf8 = __webpack_require__(0).utf8,
-      isBuffer = __webpack_require__(8),
+      isBuffer = __webpack_require__(9),
       bin = __webpack_require__(0).bin,
 
   // The core
