@@ -1,6 +1,6 @@
 # Marvel Wrapper
 
-[![Build Status](https://travis-ci.org/jhonesgoncal/marvel-wrapper.svg?branch=master)](https://travis-ci.org/jhonesgoncal/marvel-wrapper)[![Coverage Status](https://coveralls.io/repos/github/jhonesgoncal/marvel-wrapper/badge.svg?branch=master)](https://coveralls.io/github/jhonesgoncal/marvel-wrapper?branch=master)[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/jhonesgoncal/marvel-wrapper.svg?branch=master)](https://travis-ci.org/jhonesgoncal/marvel-wrapper) [![Coverage Status](https://coveralls.io/repos/github/jhonesgoncal/marvel-wrapper/badge.svg?branch=master)](https://coveralls.io/github/jhonesgoncal/marvel-wrapper?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A wrapper to work with the [Marvel Web API](https://developer.marvel.com).
 
@@ -705,6 +705,172 @@ marvel.event.search('spider')
   })
 ```
 
+> ## SERIES
+
+### serie.getSeries()
+
+> Fetches lists of series. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**No Arguments**
+--
+
+**Example**
+
+```js
+marvel.serie.getSeries()
+  .then(reponse => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
+### serie.getSerie(id)
+
+> Fetch one serie by id. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.serie.getSerie('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
+
+### serie.getCharacters(id)
+
+> Fetched list characters by id references serie. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.serie.getCharacters('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### serie.getComics(id)
+
+> Fetched list comics by id references serie. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.serie.getComics('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### serie.getCreators(id)
+
+> Fetched list creators by id references serie. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.serie.getCreators('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### serie.getEvents(id)
+
+> Fetched list events by id references serie. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.serie.getEvents('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### serie.getStories(id)
+
+> Fetched list stories by id references serie. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.serie.getStories('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### serie.search(startname)
+
+> Fetched list series by start name of search. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument  | Type    | Options            |
+|-----------|---------|--------------------|
+|`startname`|*string* |'Any search letter' |
+
+
+**Example**
+
+```js
+marvel.serie.search('spider')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
 
 ## Contributing
 

@@ -1,6 +1,6 @@
 {
   "name": "marvel-wrapper",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Wrapper to work with the Marvel Web API",
   "main": "lib/index.js",
   "scripts": {

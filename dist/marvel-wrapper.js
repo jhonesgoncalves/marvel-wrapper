@@ -128,7 +128,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _md = __webpack_require__(11);
+var _md = __webpack_require__(12);
 
 var _md2 = _interopRequireDefault(_md);
 
@@ -148,11 +148,15 @@ var _event = __webpack_require__(7);
 
 var _event2 = _interopRequireDefault(_event);
 
+var _serie = __webpack_require__(8);
+
+var _serie2 = _interopRequireDefault(_serie);
+
 var _config = __webpack_require__(5);
 
 var _config2 = _interopRequireDefault(_config);
 
-var _utils = __webpack_require__(8);
+var _utils = __webpack_require__(9);
 
 var _utils2 = _interopRequireDefault(_utils);
 
@@ -175,6 +179,7 @@ var MarvelWrapper = function () {
     this.character = _character2.default.bind(this)();
     this.creator = _creator2.default.bind(this)();
     this.event = _event2.default.bind(this)();
+    this.serie = _serie2.default.bind(this)();
   }
 
   _createClass(MarvelWrapper, [{
@@ -391,13 +396,56 @@ exports.default = event;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+function serie() {
+  var _this = this,
+      _this2 = this;
+
+  return {
+    getSerie: function getSerie(id) {
+      return _this.request(_this.apiURL + "/series/" + id);
+    },
+    getSeries: function getSeries() {
+      return _this.request(_this.apiURL + "/series");
+    },
+    getCharacters: function getCharacters(id) {
+      return _this.request(_this.apiURL + "/series/" + id + "/characters");
+    },
+    getComics: function getComics(id) {
+      return _this.request(_this.apiURL + "/series/" + id + "/comics");
+    },
+    getCreators: function getCreators(id) {
+      return _this.request(_this.apiURL + "/series/" + id + "/creators");
+    },
+    getEvents: function getEvents(id) {
+      return _this.request(_this.apiURL + "/series/" + id + "/events");
+    },
+    getStories: function getStories(id) {
+      return _this.request(_this.apiURL + "/series/" + id + "/stories");
+    },
+    search: function search(_search) {
+      return _this2.requestSearch(_this2.apiURL + "/series?nameStartsWith=" + _search + "&");
+    }
+  };
+}
+exports.default = serie;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var toJSON = function toJSON(data) {
   return data.json();
 };
 exports.default = toJSON;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports) {
 
 (function() {
@@ -499,7 +547,7 @@ exports.default = toJSON;
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports) {
 
 /*!
@@ -526,13 +574,13 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 (function(){
-  var crypt = __webpack_require__(9),
+  var crypt = __webpack_require__(10),
       utf8 = __webpack_require__(0).utf8,
-      isBuffer = __webpack_require__(10),
+      isBuffer = __webpack_require__(11),
       bin = __webpack_require__(0).bin,
 
   // The core
