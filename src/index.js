@@ -4,6 +4,7 @@ import character from './character';
 import creator from './creator';
 import event from './event';
 import serie from './serie';
+import storie from './storie';
 
 import API_URL from './config';
 import toJSON from './utils';
@@ -22,6 +23,7 @@ export default class MarvelWrapper {
     this.creator = creator.bind(this)();
     this.event = event.bind(this)();
     this.serie = serie.bind(this)();
+    this.storie = storie.bind(this)();
   }
 
   request(url) {

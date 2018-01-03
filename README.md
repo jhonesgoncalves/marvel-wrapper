@@ -85,7 +85,6 @@ const comics = marvel.comic.getComics();
 
 > Fetches lists of comics. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
 
-**No Arguments**
 --
 
 **Example**
@@ -251,7 +250,6 @@ marvel.comic.search('spider')
 
 > Fetches lists of characters. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
 
-**No Arguments**
 --
 
 **Example**
@@ -397,7 +395,6 @@ marvel.character.search('spider')
 
 > Fetches lists of creators. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
 
-**No Arguments**
 --
 
 **Example**
@@ -544,7 +541,6 @@ marvel.creator.search('spider')
 
 > Fetches lists of Events. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
 
-**No Arguments**
 --
 
 **Example**
@@ -711,7 +707,6 @@ marvel.event.search('spider')
 
 > Fetches lists of series. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
 
-**No Arguments**
 --
 
 **Example**
@@ -871,6 +866,173 @@ marvel.serie.search('spider')
     response => response.data.results.map(item => console.log(item))
   })
 ```
+
+> ## STORIES
+
+### storie.getStories()
+
+> Fetches lists of stories. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+--
+
+**Example**
+
+```js
+marvel.storie.getStories()
+  .then(reponse => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
+### storie.getStorie(id)
+
+> Fetch one storie by id. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.storie.getStorie('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
+
+### storie.getCharacters(id)
+
+> Fetched list characters by id references storie. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.storie.getCharacters('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### storie.getComics(id)
+
+> Fetched list comics by id references storie. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.storie.getComics('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### storie.getCreators(id)
+
+> Fetched list creators by id references storie. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.storie.getCreators('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### storie.getEvents(id)
+
+> Fetched list events by id references storie. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.storie.getEvents('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### storie.getSeries(id)
+
+> Fetched list series by id references storie. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument | Type    | Options           |
+|----------|---------|-------------------|
+|`id`      |*string* |  'Any search id'  |
+
+
+**Example**
+
+```js
+marvel.storie.getStories('37504')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item.name))
+  })
+```
+
+### storie.search(startname)
+
+> Fetched list stories by start name of search. Test in [Marvel Web Console](https://developer.marvel.com/docs#!/public/).
+
+**Arguments**
+
+| Argument  | Type    | Options            |
+|-----------|---------|--------------------|
+|`startname`|*string* |'Any search letter' |
+
+
+**Example**
+
+```js
+marvel.storie.search('spider')
+  .then(response => {
+    // do what you want with the response
+    response => response.data.results.map(item => console.log(item))
+  })
+```
+
 
 ## Contributing
 
