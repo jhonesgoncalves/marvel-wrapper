@@ -1,10 +1,10 @@
 {
   "name": "marvel-wrapper",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Wrapper to work with the Marvel Web API",
   "main": "lib/index.js",
   "scripts": {
-    "clear": "rimraf lib",
+    "clear": "rimraf lib && rimraf dist",
     "create:lib": "./node_modules/.bin/babel --out-dir lib src",
     "build": "npm run clear && npm run create:lib",
     "build:watch": "npm run clear && npm run create:lib -- --watch",
